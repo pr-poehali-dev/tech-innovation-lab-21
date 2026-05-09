@@ -4,7 +4,7 @@ import { Thermometer, ArrowRight } from "lucide-react"
 
 const models = [
   {
-    name: "Energolux Lausanne",
+    name: "Energolux Lausanne PRO SAS07AR2-A/SAU07AR2-A",
     series: "Серия Comfort",
     image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/785fdd13-b414-4725-af6f-99b52a6e858b.jpg",
     description: "Надёжный кондиционер для квартиры или офиса. Тихая работа, экономичное энергопотребление",
