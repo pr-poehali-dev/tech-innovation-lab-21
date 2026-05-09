@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Thermometer, ArrowRight, X } from "lucide-react"
+import { Thermometer, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react"
 
 const IMAGE_AC = "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/785fdd13-b414-4725-af6f-99b52a6e858b.jpg"
 const IMAGE_AC2 = "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/ea65e94e-9c2f-40dc-8328-d061f5312676.jpg"
+
 
 interface Spec {
   label: string
@@ -90,6 +91,17 @@ export function FeaturedDestinations() {
   const [activeFilter, setActiveFilter] = useState("Все")
   const [showAll, setShowAll] = useState(false)
   const [selected, setSelected] = useState<Model | null>(null)
+  const [activePhoto, setActivePhoto] = useState(0)
+
+  const getGallery = (model: Model) =>
+    model.image === IMAGE_AC
+      ? [IMAGE_AC, IMAGE_AC2, IMAGE_AC2]
+      : [IMAGE_AC2, IMAGE_AC, IMAGE_AC]
+
+  const openModal = (model: Model) => {
+    setSelected(model)
+    setActivePhoto(0)
+  }
 
   const filtered = activeFilter === "Все" ? models : models.filter((m) => m.series === activeFilter)
   const visible = showAll ? filtered : filtered.slice(0, INITIAL_COUNT)
@@ -132,7 +144,7 @@ export function FeaturedDestinations() {
             >
               <div
                 className="relative h-64 overflow-hidden cursor-pointer"
-                onClick={() => setSelected(model)}
+                onClick={() => openModal(model)}
               >
                 <img
                   src={model.image}
@@ -183,60 +195,110 @@ export function FeaturedDestinations() {
       </div>
 
       {/* Modal */}
-      {selected && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
-          onClick={() => setSelected(null)}
-        >
+      {selected && (() => {
+        const gallery = getGallery(selected)
+        return (
           <div
-            className="w-full max-w-2xl bg-background rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+            onClick={() => setSelected(null)}
           >
-            {/* Image */}
-            <div className="relative h-56 flex-shrink-0">
-              <img src={selected.image} alt={selected.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors rounded-full p-2"
-              >
-                <X className="h-5 w-5 text-white" />
-              </button>
-              <div className="absolute bottom-4 left-6 right-16">
-                <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full mb-2">
-                  <Thermometer className="h-3.5 w-3.5 text-white" />
-                  <span className="text-xs font-medium text-white">{selected.series}</span>
-                </div>
-                <h3 className="text-white font-semibold text-sm leading-snug">{selected.name}</h3>
-              </div>
-            </div>
+            <div
+              className="w-full max-w-2xl bg-background rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Main Image with navigation */}
+              <div className="relative h-64 flex-shrink-0">
+                <img
+                  src={gallery[activePhoto]}
+                  alt={selected.name}
+                  className="w-full h-full object-cover transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-            {/* Specs */}
-            <div className="overflow-y-auto p-6 space-y-4">
-              <div className="grid grid-cols-2 gap-3">
-                {selected.specs.map((spec, i) => (
-                  <div key={i} className="bg-muted/50 rounded-xl p-3">
-                    <div className="text-xs text-muted-foreground mb-1">{spec.label}</div>
-                    <div className="text-sm font-semibold">{spec.value}</div>
+                {/* Prev/Next arrows */}
+                <button
+                  onClick={(e) => { e.stopPropagation(); setActivePhoto((p) => (p - 1 + gallery.length) % gallery.length) }}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors rounded-full p-2"
+                >
+                  <ChevronLeft className="h-5 w-5 text-white" />
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); setActivePhoto((p) => (p + 1) % gallery.length) }}
+                  className="absolute right-12 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors rounded-full p-2"
+                >
+                  <ChevronRight className="h-5 w-5 text-white" />
+                </button>
+
+                {/* Close */}
+                <button
+                  onClick={() => setSelected(null)}
+                  className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors rounded-full p-2"
+                >
+                  <X className="h-5 w-5 text-white" />
+                </button>
+
+                {/* Photo counter dots */}
+                <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {gallery.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={(e) => { e.stopPropagation(); setActivePhoto(i) }}
+                      className={`w-2 h-2 rounded-full transition-all ${i === activePhoto ? "bg-white scale-125" : "bg-white/50"}`}
+                    />
+                  ))}
+                </div>
+
+                <div className="absolute bottom-4 left-6 right-16">
+                  <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full mb-2">
+                    <Thermometer className="h-3.5 w-3.5 text-white" />
+                    <span className="text-xs font-medium text-white">{selected.series}</span>
                   </div>
+                  <h3 className="text-white font-semibold text-sm leading-snug">{selected.name}</h3>
+                </div>
+              </div>
+
+              {/* Thumbnail strip */}
+              <div className="flex gap-2 px-4 pt-3 pb-1 flex-shrink-0">
+                {gallery.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActivePhoto(i)}
+                    className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${
+                      i === activePhoto ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img src={img} alt={`Фото ${i + 1}`} className="w-full h-full object-cover" />
+                  </button>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-border">
-                <div>
-                  <div className="text-xs text-muted-foreground mb-1">Цена</div>
-                  <div className="text-2xl font-semibold text-primary">{selected.price}</div>
+              {/* Specs */}
+              <div className="overflow-y-auto p-6 space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  {selected.specs.map((spec, i) => (
+                    <div key={i} className="bg-muted/50 rounded-xl p-3">
+                      <div className="text-xs text-muted-foreground mb-1">{spec.label}</div>
+                      <div className="text-sm font-semibold">{spec.value}</div>
+                    </div>
+                  ))}
                 </div>
-                <a href="tel:+79855379933">
-                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
-                    Заказать
-                  </Button>
-                </a>
+
+                <div className="flex items-center justify-between pt-4 border-t border-border">
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-1">Цена</div>
+                    <div className="text-2xl font-semibold text-primary">{selected.price}</div>
+                  </div>
+                  <a href="tel:+79855379933">
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
+                      Заказать
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )
+      })()}
     </section>
   )
 }
