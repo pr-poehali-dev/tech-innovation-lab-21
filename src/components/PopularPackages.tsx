@@ -28,7 +28,7 @@ const packages = [
     title: "Техническое обслуживание",
     duration: "2–3 часа",
     area: "любая площадь",
-    rating: "4.8",
+    rating: "5.0",
     reviews: "198",
     image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/8e392be2-2fb6-4621-a9d4-4b237512d5e3.jpg",
     highlights: ["Чистка фильтров", "Промывка дренажа", "Проверка давления", "Антибактериальная обработка"],
