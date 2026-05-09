@@ -41,6 +41,12 @@ export function Navbar() {
             >
               Услуги
             </a>
+            <a
+              href="#price"
+              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+            >
+              Прайс-монтаж
+            </a>
             <a href="#about" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">
               О нас
             </a>
@@ -77,6 +83,9 @@ export function Navbar() {
             </a>
             <a href="#services" className="block text-base font-medium text-foreground/70 hover:text-foreground">
               Услуги
+            </a>
+            <a href="#price" className="block text-base font-medium text-foreground/70 hover:text-foreground">
+              Прайс-монтаж
             </a>
             <a href="#about" className="block text-base font-medium text-foreground/70 hover:text-foreground">
               О нас
