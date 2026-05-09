@@ -15,7 +15,7 @@ const models = [
     series: "Серия Premium",
     image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/ea65e92e-9c2f-40dc-8328-d061f5312676.jpg",
     description: "Инверторная технология для максимального комфорта. Работает при -25°C на обогрев",
-    price: "от 42 900 ₽",
+    price: "от 39 900 ₽",
   },
   {
     name: "Energolux Bern",
