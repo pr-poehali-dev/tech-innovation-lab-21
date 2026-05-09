@@ -50,7 +50,7 @@ export function Hero() {
             <div className="text-sm text-muted-foreground">Довольных клиентов</div>
           </div>
           <div className="space-y-2">
-            <div className="text-4xl md:text-5xl font-light">5 лет</div>
+            <div className="text-4xl md:text-5xl font-light">1 год</div>
             <div className="text-sm text-muted-foreground">Гарантия на монтаж</div>
           </div>
         </div>
