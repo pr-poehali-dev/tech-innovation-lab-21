@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+import { Facebook, Instagram, Youtube } from "lucide-react"
 
 export function Footer() {
   return (
@@ -7,9 +7,9 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Horizon Voyages</h3>
+            <h3 className="text-2xl font-semibold">Energolux</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Создаём незабываемые путешествия по всему миру с 2010 года
+              Официальный дилер кондиционеров Energolux. Продажа, монтаж и обслуживание с 2015 года
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -19,73 +19,70 @@ export function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Destinations */}
+          {/* Catalog */}
           <div>
-            <h4 className="font-semibold mb-4">Направления</h4>
+            <h4 className="font-semibold mb-4">Каталог</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Европа
+                  Серия Comfort
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Азия
+                  Серия Premium
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Африка
+                  Серия Inverter
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Америка
+                  Серия Ultra
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Океания
+                  Полупромышленные
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Компания</h4>
+            <h4 className="font-semibold mb-4">Услуги</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  О нас
+                  Монтаж кондиционеров
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Вакансии
+                  Техническое обслуживание
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Пресса
+                  Ремонт и диагностика
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Блог
+                  Заправка фреоном
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Партнёры
+                  Договор на обслуживание
                 </a>
               </li>
             </ul>
@@ -93,16 +90,16 @@ export function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="font-semibold mb-4">Поддержка</h4>
+            <h4 className="font-semibold mb-4">Контакты</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Центр помощи
+                <a href="tel:+78001234567" className="hover:text-foreground transition-colors">
+                  8 800 123-45-67
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Связаться с нами
+                <a href="mailto:info@energolux-serv.ru" className="hover:text-foreground transition-colors">
+                  info@energolux-serv.ru
                 </a>
               </li>
               <li>
@@ -115,18 +112,13 @@ export function Footer() {
                   Условия использования
                 </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Правила отмены
-                </a>
-              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>2025 Horizon Voyages. Все права защищены.</p>
+          <p>© 2025 Energolux. Все права защищены.</p>
         </div>
       </div>
     </footer>

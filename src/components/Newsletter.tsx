@@ -2,15 +2,15 @@ import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Send } from "lucide-react"
+import { Phone } from "lucide-react"
 
 export function Newsletter() {
-  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Newsletter signup:", email)
-    setEmail("")
+    console.log("Callback request:", phone)
+    setPhone("")
   }
 
   return (
@@ -19,20 +19,20 @@ export function Newsletter() {
         <div className="space-y-8">
           <div className="space-y-4">
             <h2 className="text-4xl md:text-5xl font-light tracking-tight text-balance">
-              Будьте <span className="font-semibold">в курсе</span>
+              Получите <span className="font-semibold">бесплатную консультацию</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed">
-              Подпишитесь на рассылку и получайте эксклюзивные предложения, гиды по направлениям и советы от экспертов
+              Оставьте номер телефона — наш специалист перезвонит в течение 15 минут, подберёт модель и рассчитает стоимость установки
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">
             <div className="flex gap-3">
               <Input
-                type="email"
-                placeholder="Ваш email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="tel"
+                placeholder="+7 (___) ___-__-__"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 required
                 className="h-12 rounded-full border-2 px-6"
               />
@@ -41,13 +41,13 @@ export function Newsletter() {
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 shrink-0"
               >
-                <Send className="h-5 w-5" />
+                <Phone className="h-5 w-5" />
               </Button>
             </div>
           </form>
 
           <p className="text-xs text-muted-foreground">
-            Подписываясь, вы соглашаетесь с Политикой конфиденциальности и даёте согласие на получение рассылки
+            Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности и даёте согласие на обработку персональных данных
           </p>
         </div>
       </div>

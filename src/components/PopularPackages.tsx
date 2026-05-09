@@ -1,51 +1,52 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Calendar, Users, Star } from "lucide-react"
+import { Clock, Star } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 const packages = [
   {
-    title: "Гранд-тур по Европе",
-    duration: "14 дней",
-    groupSize: "12-16 человек",
+    title: "Продажа и монтаж",
+    duration: "1 день",
+    area: "до 25 м²",
     rating: "4.9",
-    reviews: "234",
-    image: "/european-cities-paris-eiffel-tower-romantic.jpg",
-    highlights: ["Париж", "Рим", "Барселона", "Амстердам"],
-    price: "429 900 ₽",
+    reviews: "312",
+    image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/13879f03-d861-482b-a712-750aff8fa5fa.jpg",
+    highlights: ["Выбор модели", "Монтаж трассы", "Заправка фреоном", "Проверка работы"],
+    price: "от 46 900 ₽",
   },
   {
-    title: "Азиатское приключение",
-    duration: "10 дней",
-    groupSize: "8-12 человек",
+    title: "Техническое обслуживание",
+    duration: "2–3 часа",
+    area: "любая площадь",
     rating: "4.8",
-    reviews: "189",
-    image: "/asian-temples-thailand-bangkok-golden-temple.jpg",
-    highlights: ["Бангкок", "Сингапур", "Бали", "Куала-Лумпур"],
-    price: "349 900 ₽",
+    reviews: "198",
+    image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/8e392be2-2fb6-4621-a9d4-4b237512d5e3.jpg",
+    highlights: ["Чистка фильтров", "Промывка дренажа", "Проверка давления", "Антибактериальная обработка"],
+    price: "от 2 900 ₽",
   },
   {
-    title: "Сафари-экспедиция",
-    duration: "7 дней",
-    groupSize: "6-10 человек",
+    title: "Комплексный договор",
+    duration: "весь сезон",
+    area: "без ограничений",
     rating: "5.0",
-    reviews: "156",
-    image: "/african-safari-wildlife-elephants-sunset.jpg",
-    highlights: ["Серенгети", "Масаи Мара", "Нгоронгоро", "Амбосели"],
-    price: "599 900 ₽",
+    reviews: "87",
+    image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/13879f03-d861-482b-a712-750aff8fa5fa.jpg",
+    highlights: ["2 ТО в год", "Приоритетный выезд", "Скидка 15% на запчасти", "Гарантия бесперебойной работы"],
+    price: "от 7 900 ₽/год",
   },
 ]
 
 export function PopularPackages() {
   return (
-    <section id="packages" className="py-32 bg-background">
+    <section id="services" className="py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-20">
           <h2 className="text-5xl md:text-6xl font-light tracking-tight mb-6 text-balance">
-            Популярные <span className="font-semibold">туры</span>
+            Наши <span className="font-semibold">услуги</span>
           </h2>
           <p className="text-lg text-muted-foreground text-balance leading-relaxed">
-            Тщательно подобранные туры, объединяющие лучшие направления и впечатления
+            Полный цикл: от выбора модели до регулярного обслуживания — всё в одном месте
           </p>
         </div>
 
@@ -81,12 +82,12 @@ export function PopularPackages() {
                   {/* Meta Info */}
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="h-4 w-4" />
+                      <Clock className="h-4 w-4" />
                       <span>{pkg.duration}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Users className="h-4 w-4" />
-                      <span>{pkg.groupSize}</span>
+                      <Icon name="Maximize2" size={16} />
+                      <span>{pkg.area}</span>
                     </div>
                   </div>
 
@@ -103,11 +104,11 @@ export function PopularPackages() {
                 {/* Price & CTA */}
                 <div className="flex items-center justify-between pt-6 border-t border-border">
                   <div>
-                    <div className="text-xs text-muted-foreground mb-1">Цена от</div>
+                    <div className="text-xs text-muted-foreground mb-1">Цена</div>
                     <div className="text-2xl font-semibold text-primary">{pkg.price}</div>
                   </div>
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full">
-                    Забронировать
+                    Заказать
                   </Button>
                 </div>
               </div>
