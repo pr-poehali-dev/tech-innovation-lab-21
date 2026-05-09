@@ -34,16 +34,6 @@ const packages = [
     highlights: ["Чистка фильтров", "Промывка дренажа", "Проверка давления", "Антибактериальная обработка"],
     price: "от 6 500 ₽",
   },
-  {
-    title: "Комплексный договор",
-    duration: "весь сезон",
-    area: "без ограничений",
-    rating: "5.0",
-    reviews: "87",
-    image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/13879f03-d861-482b-a712-750aff8fa5fa.jpg",
-    highlights: ["2 ТО в год", "Приоритетный выезд", "Скидка 15% на запчасти", "Гарантия бесперебойной работы"],
-    price: "от 7 900 ₽/год",
-  },
 ]
 
 export function PopularPackages() {
@@ -61,7 +51,7 @@ export function PopularPackages() {
         </div>
 
         {/* Packages Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
             <Card
               key={index}
