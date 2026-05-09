@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero"
 import { FeaturedDestinations } from "@/components/FeaturedDestinations"
 import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { PopularPackages } from "@/components/PopularPackages"
+import { PriceList } from "@/components/PriceList"
 import { Newsletter } from "@/components/Newsletter"
 import { Footer } from "@/components/Footer"
 
@@ -14,6 +15,7 @@ export default function Index() {
       <FeaturedDestinations />
       <WhyChooseUs />
       <PopularPackages />
+      <PriceList />
       <Newsletter />
       <Footer />
     </main>
