@@ -93,8 +93,8 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Контакты</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="tel:+78001234567" className="hover:text-foreground transition-colors">
-                  8 800 123-45-67
+                <a href="tel:+79855379933" className="hover:text-foreground transition-colors">
+                  +7 985 537 99 33
                 </a>
               </li>
               <li>
