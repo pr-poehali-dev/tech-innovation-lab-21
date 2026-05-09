@@ -5,6 +5,16 @@ import Icon from "@/components/ui/icon"
 
 const packages = [
   {
+    title: "Замер",
+    duration: "1–2 часа",
+    area: "любая площадь",
+    rating: "5.0",
+    reviews: "143",
+    image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/13879f03-d861-482b-a712-750aff8fa5fa.jpg",
+    highlights: ["Выезд специалиста", "Оценка объекта", "Подбор оборудования", "Смета бесплатно"],
+    price: "Бесплатно",
+  },
+  {
     title: "Продажа и монтаж",
     duration: "1 день",
     area: "до 25 м²",
@@ -51,7 +61,7 @@ export function PopularPackages() {
         </div>
 
         {/* Packages Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {packages.map((pkg, index) => (
             <Card
               key={index}
