@@ -1,9 +1,13 @@
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone } from "lucide-react"
+import { Calculator } from "@/components/Calculator"
 
 export function Hero() {
+  const [calcOpen, setCalcOpen] = useState(false)
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-muted/30 to-background">
+    <><section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-muted/30 to-background">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -33,7 +37,7 @@ export function Hero() {
               Смотреть каталог
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base border-2 bg-transparent">
+            <Button size="lg" variant="outline" onClick={() => setCalcOpen(true)} className="rounded-full px-8 h-14 text-base border-2 bg-transparent">
               Рассчитать стоимость
             </Button>
             <a href="tel:+79855379933">
@@ -61,6 +65,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </section><Calculator open={calcOpen} onClose={() => setCalcOpen(false)} /></>
   )
 }
