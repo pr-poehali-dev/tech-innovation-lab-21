@@ -18,7 +18,7 @@ const packages = [
     title: "Продажа и монтаж",
     duration: "1 день",
     area: "до 25 м²",
-    rating: "4.9",
+    rating: "5.0",
     reviews: "312",
     image: "https://cdn.poehali.dev/projects/f7739e63-295a-4d81-92d6-a734901b7e1c/files/13879f03-d861-482b-a712-750aff8fa5fa.jpg",
     highlights: ["Выбор модели", "Монтаж трассы", "Заправка фреоном", "Проверка работы"],
