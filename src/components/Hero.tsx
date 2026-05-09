@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
 
 export function Hero() {
   return (
@@ -36,6 +36,12 @@ export function Hero() {
             <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base border-2 bg-transparent">
               Рассчитать стоимость
             </Button>
+            <a href="tel:+79855379933">
+              <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base border-2 bg-transparent gap-2">
+                <Phone className="h-5 w-5" />
+                +7 985 537 99 33
+              </Button>
+            </a>
           </div>
         </div>
 
