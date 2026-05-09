@@ -26,6 +26,14 @@ export function Newsletter() {
             </p>
           </div>
 
+          <a
+            href="tel:+79855379933"
+            className="inline-flex items-center gap-2 text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
+          >
+            <Phone className="h-5 w-5" />
+            +7 985 537 99 33
+          </a>
+
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">
             <div className="flex gap-3">
               <Input
